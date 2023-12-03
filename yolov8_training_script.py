@@ -34,11 +34,11 @@ from IPython.display import display, Image
 !pip install roboflow --quiet
 
 # Importing the Roboflow class from the roboflow library and setting up the API key
-from roboflow import Roboflow
-rf = Roboflow(api_key="YOUR_API_KEY")
+!pip install roboflow
 
-# Accessing a specific workspace, project, and version from the Roboflow platform
-project = rf.workspace("roboflow-jvuqo").project("football-players-detection-3zvbc")
+from roboflow import Roboflow
+rf = Roboflow(api_key="3c1rVplkVlaNwJhcLbGT")
+project = rf.workspace("orkhan-aliyev-8nktf").project("fruits-and-vegetables-2vf7u")
 dataset = project.version(1).download("yolov8")
 
 # Changing the working directory back to the original HOME directory

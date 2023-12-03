@@ -21,12 +21,14 @@ rf = Roboflow(model_format="yolov5", notebook="ultralytics")
 # Set up environment variables
 os.environ["DATASET_DIRECTORY"] = "/content/datasets"
 
-# Obtain Roboflow API key and project information
-# NOTE: Fill in "YOUR API KEY HERE", "YOUR PROJECT", and "YOUR VERSION" with actual values
+# Importing the Roboflow class from the roboflow library and setting up the API key
+!pip install roboflow
+
 from roboflow import Roboflow
-rf = Roboflow(api_key="YOUR API KEY HERE")
-project = rf.workspace().project("YOUR PROJECT")
-dataset = project.version("YOUR VERSION").download("yolov5")
+rf = Roboflow(api_key="3c1rVplkVlaNwJhcLbGT")
+project = rf.workspace("orkhan-aliyev-8nktf").project("fruits-and-vegetables-2vf7u")
+dataset = project.version(1).download("yolov5-obb")
+
 
 # Train YOLOv5 model
 !python train.py --img 416 --batch 16 --epochs 150 --data {dataset.location}/data.yaml --weights yolov5s.pt --cache
